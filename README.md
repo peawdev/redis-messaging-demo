@@ -54,6 +54,23 @@ Task queues / Job processing | เป็นไปไม่ได้ถ้าใ�
 IoT messaging | Good for real-time updates(เหมาะกับงานที่ต้องการการอัพเดตแบบ real-time) | Good for persistent data and guaranteed delivery(เหมาะกับงานที่ต้องการความยั่งยืนของข้อมูล)
 Transactional messaging | No built-in transaction support(ไม่เหมาะกับการทำงานแบบ Transaction) | Strong transactional guarantees(เหมาะมาก เพราะสามารถใช้กับการทำงานที่ complex logic)
 
+## CLI Command
+ > *  ref: https://redis.io/docs/latest/commands/?group=pubsub
+
+- 🔘 `PUBSUB CHANNELS [pattern]`
+> คืนค่าจำนวนของ publisher และ subscriber channel ที่ยัง active อยู่
+- 🔘 `PUBLISH channel message`
+> post message ไปยัง channel ที่เลือก
+- 🔘 `SUBSCRIBE channel [channel ...]`
+> รอรับ message จาก channel ที่เลือก
+- 🔘 `UNSUBSCRIBE [channel [channel ...]]`
+> ยกเลิกการ subscribe ของ channel ที่เลือก
+- 🔘 `UNSUBSCRIBE [channel [channel ...]]`
+> ยกเลิกการ subscribe ของ channel ที่เลือก
+- 🔘 `PUBSUB NUMSUB [channel [channel ...]]`
+> นับจำนวนการ subscribe ของ channel ที่เลือก
+
+
 ## วิธีการเลือกใช้ระหว่าง Redis and RabbitMQ as Messaging Brokers
 - ✅ Choose Redis if:
 - ถ้าต้องการเลือกใช้ pub/sub ที่ส่งข้อมูลเร็ว เช่น live chat, real-time notifications
